@@ -1,0 +1,19 @@
+#!/bin/bash
+ 
+OUTPUT_LOG=/home/
+UPDATE_SCRIPT='sudo apt-get update -y && sudo apt-get dist-upgrade -y && sudo apt-get autoremove -y && sudo apt-get clean -y && sudo reboot'
+HOSTS=' ' #place hosts here ex: pi@10.0.0.1
+
+date=`date '+%Y-%m-%d'`
+time=`date '+%H-%M-%S'`
+
+for host in ${HOSTS}
+do
+    ssh ${host} ${UPDATE_SCRIPT} > ${OUTPUT_LOG}/${host}_Update_${date}_${time}.log
+    # if additional stuff is desired to only be ran on one host after the reboot
+    #if [ ${host} = ' ' ] 
+    #then
+        #sleep 60
+        #ssh ${host} 'pihole -up && exit' >> ${OUTPUT_LOG}/${host}_Update_${date}_${time}.log
+    #fi
+done
