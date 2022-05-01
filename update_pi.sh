@@ -1,7 +1,7 @@
 #!/bin/bash
  
 OUTPUT_LOG=/home/
-UPDATE_SCRIPT='DEBIAN_FRONTEND=noninteractive sudo apt-get update -y && sudo apt-get dist-upgrade -y && sudo apt-get autoremove -y && sudo apt-get clean -y && sudo reboot'
+UPDATE_SCRIPT='DEBIAN_FRONTEND=noninteractive sudo apt-get update -y && DEBIAN_FRONTEND=noninteractive sudo apt-get dist-upgrade -y && DEBIAN_FRONTEND=noninteractive sudo apt-get autoremove -y && DEBIAN_FRONTEND=noninteractive sudo apt-get clean -y && DEBIAN_FRONTEND=noninteractive sudo reboot'
 HOSTS=' ' # place hosts here ex: pi@10.0.0.1 or use args
 
 # Example: -h pi@127.0.0.1
